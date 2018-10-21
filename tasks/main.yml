@@ -78,4 +78,4 @@
 - name: Suppress the setup wizard
   bigip_sys_global:
     gui_setup: no
-    delegate_to: localhost
+  delegate_to: localhost
