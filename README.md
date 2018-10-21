@@ -93,5 +93,8 @@ To validate the SSL certificates of the BIG-IP REST API
 - Generate a public private key pair
 - Store the public key on BIG-IP (https://support.f5.com/csp/article/K13454#bigipsshdaccept)
 
+## Licensing
+When licensing a BIG-IP, this role will accept the EULA on your behalf. This module will not present you with the EULA, so it is incumbent on you to read it here: https://support.f5.com/csp/article/K12902
+
 ## Credits
 https://github.com/F5Networks/f5-ansible
