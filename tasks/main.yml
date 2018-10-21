@@ -38,17 +38,6 @@
     validate_certs: False
   delegate_to: localhost
 
-- name: Provision BIG-IP with appropriate modules
-  bigip_provision:
-     server: "{{ inventory_hostname }}"
-     user: "{{ username }}"
-     password: "{{ password }}"
-     validate_certs: False
-     module: "{{ item.name }}"
-     level: "{{ item.level }}"
-  with_items: "{{ module_provisioning }}"
-  delegate_to: localhost
-
 - name: Configure VLANs on the BIG-IP
   bigip_vlan:
     server: "{{ inventory_hostname }}"
@@ -80,5 +69,18 @@
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
+    validate_certs: False
     gui_setup: no
   delegate_to: localhost
+
+- name: Provision BIG-IP with appropriate modules
+  bigip_provision:
+     server: "{{ inventory_hostname }}"
+     user: "{{ username }}"
+     password: "{{ password }}"
+     validate_certs: False
+     module: "{{ item.name }}"
+     level: "{{ item.level }}"
+  with_items: "{{ module_provisioning }}"
+  delegate_to: localhost
+  
