@@ -8,8 +8,7 @@ Ansible role to automate onboarding configuration on a BIG-IP. The role will con
 * Configure VLAN's and Self-IPs
 
 ## Requirements
-* This role requires Ansible 2.4
-* BIG-IP is licensed
+* This role requires Ansible 2.6
 * Packages to be installed
   - pip install f5-sdk
   - pip install bigsuds
@@ -37,6 +36,8 @@ dns_servers:                                        //DNS servers configured on 
 dns_search_domains:                                 //DNS serach domains configured on BIG-IP
  - 'local'
  - 'localhost'
+
+device_license: 'AAAAA-BBBBB-CCCCC-DDDDD-EEEEEEE'   //BIG-IP license key. Only use this variable if you desire the licensing task to run.
 
 ip_version: 4                                       //DNS protocol version
 
