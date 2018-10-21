@@ -74,17 +74,6 @@
     gui_setup: no
   delegate_to: localhost
 
-- name: Provision BIG-IP with appropriate modules
-  bigip_provision:
-     server: "{{ inventory_hostname }}"
-     user: "{{ username }}"
-     password: "{{ password }}"
-     validate_certs: False
-     module: "{{ item.name }}"
-     level: "{{ item.level }}"
-  with_items: "{{ module_provisioning }}"
-  delegate_to: localhost
-
 - name: License BIG-IP using a key
   when: device_license is defined
   bigip_device_license:
@@ -95,3 +84,15 @@
     license_key: "{{ device_license }}"
     accept_eula: yes
   delegate_to: localhost
+
+- name: Provision BIG-IP with appropriate modules
+  bigip_provision:
+     server: "{{ inventory_hostname }}"
+     user: "{{ username }}"
+     password: "{{ password }}"
+     validate_certs: False
+     module: "{{ item.name }}"
+     level: "{{ item.level }}"
+  with_items: "{{ module_provisioning }}"
+  delegate_to: localhost
+  
