@@ -45,8 +45,9 @@
     password: "{{ password }}"
     validate_certs: False
     name: "{{ item.name }}"
-    tag: "{{ item.tag }}"
-    tagged_interface: "{{ item.interface }}"
+    tag: "{{ item.tag | default(omit)}}"
+    tagged_interface: "{{ item.interface if item.tag is defined else omit }}"
+    untagged_interface: "{{ item.interface if item.tag is undefined else omit }}"
   with_items: "{{ vlan_information }}"
   delegate_to: localhost
 

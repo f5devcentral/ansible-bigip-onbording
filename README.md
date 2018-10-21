@@ -37,16 +37,16 @@ dns_search_domains:                                 //DNS serach domains configu
  - 'local'
  - 'localhost'
 
-device_license: 'AAAAA-BBBBB-CCCCC-DDDDD-EEEEEEE'   //BIG-IP license key. Only use this variable if you desire the licensing task to run.
+device_license: 'AAAAA-BBBBB-CCCCC-DDDDD-EEEEEEE'   //BIG-IP license key. Only declare this variable if you desire the licensing task to run.
 
 ip_version: 4                                       //DNS protocol version
 
 vlan_information:                                   //VLAN configured on BIG-IP
  - name: 'External'                                 //Example: VLAN 'External' with VLAN tag 10
-   tag: '10'                                                   tag 10 tagged to interface 1.1
+   tag: '10'                                                   tag 10 tagged to interface 1.1. Omitting the 'tag' parameter will create an untagged VLAN
    interface: '1.1'                                 
  - name: 'Internal'                                 //Example: VLAN 'Internal' with VLAN tag 11 
-   tag: '11'                                                   tagged to interface 1.2
+   tag: '11'                                                   tagged to interface 1.2. Omitting the 'tag' parameter will create an untagged VLAN
    interface: '1.2'
 
 selfip_information:                                 //Self-IP configured on the BIG-IP
