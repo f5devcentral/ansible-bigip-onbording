@@ -1,9 +1,4 @@
 ---
-- name: Disable the setup utility
-  bigip_sys_global:
-    gui_setup: no
-  delegate_to: localhost
-  
 - name: Configure NTP server on BIG-IP
   bigip_device_ntp:
      server: "{{ inventory_hostname }}"
@@ -78,4 +73,12 @@
     vlan: "{{ item.vlan }}"
     allow_service: "{{item.allow_service | default(omit)}}"
   with_items: "{{ selfip_information }}"
+  delegate_to: localhost
+
+- name: Disable the setup utility
+  bigip_sys_global:
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    gui_setup: no
   delegate_to: localhost
