@@ -85,7 +85,7 @@
   delegate_to: localhost
 
 - name: License BIG-IP using a key
-  when: device_license != ""
+  when: device_license is defined
   bigip_device_license:
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
