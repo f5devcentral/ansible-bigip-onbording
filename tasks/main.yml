@@ -74,3 +74,7 @@
     allow_service: "{{item.allow_service | default(omit)}}"
   with_items: "{{ selfip_information }}"
   delegate_to: localhost
+
+- name: Suppress the setup wizard
+  gui_setup: no
+  delegate_to: localhost
