@@ -71,6 +71,6 @@
     address: "{{ item.address }}"
     netmask: "{{ item.netmask }}"
     vlan: "{{ item.vlan }}"
-    allow_service: "{{item.allow_service}}"
+    allow_service: "{{item.allow_service | default(omit)}}"
   with_items: "{{ selfip_information }}"
   delegate_to: localhost
