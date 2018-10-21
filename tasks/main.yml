@@ -76,5 +76,6 @@
   delegate_to: localhost
 
 - name: Suppress the setup wizard
-  gui_setup: no
-  delegate_to: localhost
+  bigip_sys_global:
+    gui_setup: no
+    delegate_to: localhost
