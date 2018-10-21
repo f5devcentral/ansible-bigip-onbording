@@ -91,5 +91,5 @@
     password: "{{ password }}"
     validate_certs: False
     license_key: "{{ device_license }}"
+    accept_eula: yes
   delegate_to: localhost
-  
