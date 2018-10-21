@@ -83,4 +83,13 @@
      level: "{{ item.level }}"
   with_items: "{{ module_provisioning }}"
   delegate_to: localhost
+
+- name: License BIG-IP using a key
+  bigip_device_license:
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    validate_certs: False
+    license_key: "{{ device_license }}"
+  delegate_to: localhost
   
