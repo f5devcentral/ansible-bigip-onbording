@@ -65,15 +65,6 @@
   with_items: "{{ selfip_information }}"
   delegate_to: localhost
 
-- name: Disable the setup utility
-  bigip_sys_global:
-    server: "{{ inventory_hostname }}"
-    user: "{{ username }}"
-    password: "{{ password }}"
-    validate_certs: False
-    gui_setup: no
-  delegate_to: localhost
-
 - name: License BIG-IP using a key
   when: device_license is defined
   bigip_device_license:
@@ -96,3 +87,11 @@
   with_items: "{{ module_provisioning }}"
   delegate_to: localhost
   
+- name: Disable the setup utility
+  bigip_sys_global:
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    validate_certs: False
+    gui_setup: no
+  delegate_to: localhost
